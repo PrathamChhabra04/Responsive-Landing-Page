@@ -1,0 +1,309 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Exo", sans-serif;
+}
+body {
+  min-height: 100vh;
+  background-color: #0a0a0b;
+}
+.main-pg {
+  position: relative;
+}
+nav {
+  color: white;
+  display: flex;
+  padding: 2.75vw 7.75vw;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+  font-size: 16px;
+}
+li {
+  list-style: none;
+}
+.nav-bar ul {
+  display: flex;
+  gap: 4.75vw;
+}
+.nav-bar ul li {
+  cursor: pointer;
+}
+.nav-bar ul li:hover {
+  scale: 1.05;
+  transition: transform 0.3 ease;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+.wheel {
+  font-size: 18px;
+}
+.home {
+  color: #4177dc;
+}
+.icons {
+  position: absolute;
+  top: 1.65%;
+  right: 14%;
+  cursor: pointer;
+  z-index: 9999;
+}
+#menu-bar {
+  display: none;
+  position: absolute;
+  font-size: 30px;
+}
+.close-btn {
+  position: absolute;
+  display: none;
+  font-size: 30px;
+}
+.nav-container {
+  position: relative;
+}
+#check {
+  position: absolute;
+  display: none;
+}
+body .main-pg .glow1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  min-height: 100vh;
+  z-index: -1;
+  background: radial-gradient(
+    circle,
+    rgba(55, 74, 109, 0.6) 0%,
+    rgba(55, 74, 109, 0) 100%
+  );
+  animation: glowAnimation 3s infinite alternate;
+}
+
+@keyframes glowAnimation {
+  0% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+.main-content {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 4vw;
+  position: relative;
+}
+.main-content h1 {
+  font-size: 36px;
+  font-weight: 600;
+  text-transform: capitalize;
+  padding-bottom: 2vw;
+}
+.main-content h2 {
+  font-size: 24px;
+  font-weight: 600;
+  padding-bottom: 1vw;
+}
+.main-content h3 {
+  font-size: 16px;
+  font-weight: 400;
+  color: #babec4;
+}
+.electric-car {
+  display: flex;
+  gap: 2px;
+  padding-bottom: 3vw;
+}
+.bolt {
+  font-size: 20px;
+  color: #4177dc;
+}
+.try {
+  cursor: pointer;
+  position: relative;
+}
+
+.main-img {
+  position: relative;
+  filter: drop-shadow(0px 2px 4px rgba(226, 226, 225, 0.1));
+}
+.lights {
+  height: 23px;
+  width: 45px;
+  rotate: 0deg;
+  position: absolute;
+  top: 39%;
+  right: 81%;
+  z-index: 55;
+  border-radius: 30%;
+  opacity: 1;
+}
+.lights::before {
+  content: "";
+  position: absolute;
+  scale: 1.2;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: blur(3px);
+  background: radial-gradient(
+    circle,
+    rgba(253, 179, 20, 0.65) 0%,
+    rgba(255, 255, 0, 0) 80%
+  );
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+.lights2 {
+  height: 23px;
+  width: 45px;
+  position: absolute;
+  top: 39%;
+  z-index: 56;
+  left: 81%;
+  rotate: -5.9deg;
+  border-radius: 30%;
+}
+.lights2::before {
+  content: "";
+  position: absolute;
+  scale: 1.2;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: blur(3px);
+  background: radial-gradient(
+    circle,
+    rgba(253, 179, 20, 0.65) 0%,
+    rgba(255, 255, 0, 0) 80%
+  );
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+.try:hover .lights2::before,
+.try:hover .lights::before {
+  opacity: 1;
+}
+@media (max-width: 576px) {
+  #menu-bar {
+    display: block;
+  }
+  .nav-bar {
+    top: 0;
+    overflow: hidden;
+    height: 100vh;
+    width: 0;
+    right: 0;
+    position: absolute;
+    background-color: rgba(15, 15, 15, 0.4);
+    backdrop-filter: blur(12px);
+    z-index: 99;
+    box-shadow: -8px 0 8px rgba(118, 117, 117, 0.1);
+    transition: 0.4s ease;
+  }
+  .nav-bar ul {
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5.5vw;
+    text-transform: uppercase;
+    align-items: flex-start;
+    padding-top: 50px;
+    padding-left: 70px;
+    /* color: rgb(18, 18, 18); */
+  }
+  .nav-bar ul li {
+    cursor: pointer;
+  }
+  .nav-bar ul li:hover {
+    scale: 1.05;
+    transition: transform 0.3 ease;
+  }
+
+  #check:checked ~ .icons #menu-bar {
+    display: none;
+  }
+  #check:checked ~ .icons .close-btn {
+    display: block;
+  }
+  #check:checked ~ .nav-bar {
+    width: 65vw;
+  }
+  .main-content {
+    padding-top: 13vw;
+  }
+  .main-content h1 {
+    font-size: 28px;
+    padding-bottom: 4.5vw;
+  }
+  .main-content h2 {
+    font-size: 24px;
+    padding-bottom: 2.5vw;
+  }
+  .main-content h3 {
+    font-size: 16px;
+  }
+  .main-img {
+    scale: 0.9;
+  }
+  .lights {
+    right: 77%;
+  }
+  .lights2 {
+    left: 77%;
+  }
+}
+.properties {
+  display: flex;
+  padding-top: 4vw;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+}
+.temperature,
+.battery,
+.mileage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.properties h3 {
+  font-size: 13px;
+  color: #888b91;
+  font-weight: 400;
+}
+.properties h2 {
+  font-weight: 500;
+  padding-bottom: 0.5vw;
+}
+.properties h4,
+.properties span {
+  font-weight: 300;
+  padding-bottom: 2vw;
+  font-size: 20px;
+  color: white;
+}
+.properties h4 {
+  font-size: 13px;
+}
+.start {
+  display: flex;
+  justify-content: center;
+  padding-top: 2vw;
+  cursor: pointer;
+}
+.start:hover {
+  scale: 0.95;
+}
